@@ -1,0 +1,9 @@
+C:\Users\Саша\Documents\Visual Studio 2015\Projects\TRUTLEGRAPH3\TRUTLEGRAPH3\bin\Debug\TRUTLEGRAPH3.exe.config
+C:\Users\Саша\Documents\Visual Studio 2015\Projects\TRUTLEGRAPH3\TRUTLEGRAPH3\bin\Debug\TRUTLEGRAPH3.exe
+C:\Users\Саша\Documents\Visual Studio 2015\Projects\TRUTLEGRAPH3\TRUTLEGRAPH3\bin\Debug\TRUTLEGRAPH3.pdb
+C:\Users\Саша\Documents\Visual Studio 2015\Projects\TRUTLEGRAPH3\TRUTLEGRAPH3\obj\Debug\TRUTLEGRAPH3.csprojResolveAssemblyReference.cache
+C:\Users\Саша\Documents\Visual Studio 2015\Projects\TRUTLEGRAPH3\TRUTLEGRAPH3\obj\Debug\TRUTLEGRAPH3.MainForm.resources
+C:\Users\Саша\Documents\Visual Studio 2015\Projects\TRUTLEGRAPH3\TRUTLEGRAPH3\obj\Debug\TRUTLEGRAPH3.Properties.Resources.resources
+C:\Users\Саша\Documents\Visual Studio 2015\Projects\TRUTLEGRAPH3\TRUTLEGRAPH3\obj\Debug\TRUTLEGRAPH3.csproj.GenerateResource.Cache
+C:\Users\Саша\Documents\Visual Studio 2015\Projects\TRUTLEGRAPH3\TRUTLEGRAPH3\obj\Debug\TRUTLEGRAPH3.exe
+C:\Users\Саша\Documents\Visual Studio 2015\Projects\TRUTLEGRAPH3\TRUTLEGRAPH3\obj\Debug\TRUTLEGRAPH3.pdb
