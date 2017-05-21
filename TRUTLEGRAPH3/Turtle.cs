@@ -9,14 +9,14 @@ using System.Windows.Forms;
 
 namespace TRUTLEGRAPH3
 {
-    class Turtle
+    abstract class Turtle
     {
         public PointF CurrentPoint;
         public float Angle;
-        public Pen Pen = new Pen(Color.Black);
+        private Pen _pen = new Pen(Color.Black);
         public Bitmap Bmp;
         public Graphics G;
-        private PictureBox _drawingArea;
+        protected PictureBox DrawingArea;
 
 
 
@@ -24,8 +24,7 @@ namespace TRUTLEGRAPH3
 
         public void Display(PictureBox drawingArea)
         {
-            
-            _drawingArea = drawingArea;
+            DrawingArea = drawingArea;
             CurrentPoint = new PointF(drawingArea.Width / 2, drawingArea.Height / 2);
             Bmp = new Bitmap(drawingArea.Width, drawingArea.Height);
             drawingArea.Image = Bmp;
@@ -33,14 +32,9 @@ namespace TRUTLEGRAPH3
             buffer = new Bitmap(drawingArea.Image);
             DrawTurtle();
             drawingArea.Invalidate();
-
         }
 
-        private void DrawTurtle()
-        { 
-            G.DrawRectangle(Pen, CurrentPoint.X - 5, CurrentPoint.Y - 5, 10, 10);
-        }
-
+        public abstract void DrawTurtle();
 
         public void MoveForward(string value, bool penIsActive)
         {
@@ -56,15 +50,15 @@ namespace TRUTLEGRAPH3
             
             if (penIsActive)
             {
-                G.DrawLine(Pen, CurrentPoint, toMovePoint);
+                G.DrawLine(_pen, CurrentPoint, toMovePoint);
             }
 
-            buffer = new Bitmap(_drawingArea.Image);
+            buffer = new Bitmap(DrawingArea.Image);
             CurrentPoint = toMovePoint;
 
             DrawTurtle();
 
-            _drawingArea.Invalidate();
+            DrawingArea.Invalidate();
         }
 
         public void MoveBackwards(string value, bool penIsActive)
@@ -81,15 +75,15 @@ namespace TRUTLEGRAPH3
 
             if (penIsActive)
             {
-                G.DrawLine(Pen, CurrentPoint, toMovePoint);
+                G.DrawLine(_pen, CurrentPoint, toMovePoint);
             }
 
-            buffer = new Bitmap(_drawingArea.Image);
+            buffer = new Bitmap(DrawingArea.Image);
             CurrentPoint = toMovePoint;
 
             DrawTurtle();
 
-            _drawingArea.Invalidate();
+            DrawingArea.Invalidate();
         }
 
         public void TurnLeft(string value)
@@ -102,24 +96,12 @@ namespace TRUTLEGRAPH3
             Angle += float.Parse(value);
         }
 
-        public void DrawCircle(string value, bool penIsActive)
+        public void Clear()
         {
-            for (int i = 0; i < 18; i++)
-            {
-                MoveForward(value,true);
-                Angle += 20f;
-            }
-            _drawingArea.Invalidate();
-        }
-
-        public void DrawTriangle(string value, bool penIsActive)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                MoveForward(value, true);
-                Angle += 120f;
-            }
-            _drawingArea.Invalidate();
+            G.Clear(Color.White);
+            buffer = new Bitmap(DrawingArea.Image);
+            DrawTurtle();
+            DrawingArea.Invalidate();
         }
     }
 }

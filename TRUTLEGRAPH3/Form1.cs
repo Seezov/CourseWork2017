@@ -12,43 +12,75 @@ namespace TRUTLEGRAPH3
 {
     public partial class MainForm : Form
     {
-        Turtle turtle = new Turtle();
-
         public MainForm()
         {
             InitializeComponent();
-            turtle.Angle = 0;
-            turtle.Display(DrawingArea);
         }
 
-        private void MoveForwardButton_Click(object sender, EventArgs e)
+        private RedTurtleForm RTForm;
+
+        private void redToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            turtle.MoveForward(MFTextBox.Text, PenCheckBox.Checked);
+            if (RTForm == null)
+            {
+                RTForm = new RedTurtleForm();
+                RTForm.MdiParent = this;
+                RTForm.FormClosed += RTForm_FormClosed;
+                RTForm.Show();
+            }
+            else
+            {
+                RTForm.Activate();
+            }
         }
 
-        private void MoveBackwardsButton_Click(object sender, EventArgs e)
+        private void RTForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            turtle.MoveBackwards(MBTextBox.Text, PenCheckBox.Checked);
+            RTForm = null;
         }
 
-        private void TurnLeftButton_Click(object sender, EventArgs e)
+        private GreenTurtleForm GTForm;
+
+        private void greenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            turtle.TurnLeft(TLTextBox.Text);
+            if (GTForm == null)
+            {
+                GTForm = new GreenTurtleForm();
+                GTForm.MdiParent = this;
+                GTForm.FormClosed += GTForm_FormClosed;
+                GTForm.Show();
+            }
+            else
+            {
+                GTForm.Activate();
+            }
         }
 
-        private void TurnRightButton_Click(object sender, EventArgs e)
+        private void GTForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            turtle.TurnRight(TRTextBox.Text);
+            GTForm = null;
         }
 
-        private void DrawCircleButton_Click(object sender, EventArgs e)
+        private BlueTurtleForm BTForm;
+
+        private void blueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            turtle.DrawCircle(RadiusTextBox.Text,PenCheckBox.Checked);
+            if (BTForm == null)
+            {
+                BTForm = new BlueTurtleForm();
+                BTForm.MdiParent = this;
+                BTForm.FormClosed += BTForm_FormClosed;
+                BTForm.Show();
+            }
+            else
+            {
+                BTForm.Activate();
+            }
         }
 
-        private void DrawTriangleButton_Click(object sender, EventArgs e)
+        private void BTForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            turtle.DrawTriangle(TriangleTextBox.Text, PenCheckBox.Checked);
+            BTForm = null;
         }
     }
 }
